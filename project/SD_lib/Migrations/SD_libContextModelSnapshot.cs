@@ -104,6 +104,12 @@ namespace SD_lib.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER")
                         .HasColumnName("id");
+            modelBuilder.Entity("SD_lib.Entity.Models.Card", b =>
+                {
+                    b.Property<Guid>("CardId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("guid");
 
                     b.Property<int>("CVV")
                         .HasMaxLength(3)
@@ -113,6 +119,8 @@ namespace SD_lib.Migrations
                     b.Property<string>("CardNumber")
                         .IsRequired()
                         .HasColumnType("TEXT")
+                    b.Property<int>("CardNumber")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("card_number");
 
                     b.Property<DateTime>("ExpirationDate")
@@ -132,6 +140,7 @@ namespace SD_lib.Migrations
                     b.HasIndex("HolderClientId");
 
                     b.ToTable("Cards");
+                    b.ToTable("Cards", "Work");
                 });
 
             modelBuilder.Entity("SD_lib.Entity.Models.Client", b =>
@@ -170,6 +179,7 @@ namespace SD_lib.Migrations
                         .IsRequired();
 
                     b.Navigation("Account");
+                    b.ToTable("Clients", "Work");
                 });
 
             modelBuilder.Entity("SD_lib.Entity.Models.Card", b =>
@@ -185,6 +195,7 @@ namespace SD_lib.Migrations
                 {
                     b.Navigation("Sessions");
                 });
+
 
             modelBuilder.Entity("SD_lib.Entity.Models.Client", b =>
                 {

@@ -4,7 +4,6 @@ using NLog.Web;
 using SD;
 using SD.Models.Repositories;
 using SD.Models.Repositories.Interfaces;
-using SD.Repos.IRepository;
 using SD.Services;
 using SD.Services.Interfaces;
 using SD_lib.DB;
@@ -35,11 +34,16 @@ builder.Services.AddDbContext<SD_libContext>();
 
 builder.Services.AddScoped<ICardRepository, CardRepository>();
 builder.Services.AddScoped<IClientRepository, ClientRepository>();
+
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 
 builder.Services.AddScoped<ICardService, CardService>();
 builder.Services.AddScoped<IClientService, ClientService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+=======
+
+builder.Services.AddScoped<ICardService, CardService>();
+builder.Services.AddScoped<IClientService, ClientService>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
