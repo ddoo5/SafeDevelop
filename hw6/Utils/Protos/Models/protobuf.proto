@@ -1,0 +1,22 @@
+﻿//just for test, maybe later i'll rewrite all project
+
+syntax = "proto3";
+
+option csharp_namespace = "SD";
+
+package ClientSetviceProtos;
+
+service ClientService{
+    rpc CreateProto(ClientRequest) returns (ClientResponse);
+};
+
+message ClientRequest{
+    string Surname = 1;
+    string Name = 2;
+    string Patronymic = 3;
+}
+
+
+message ClientResponse{
+    string Name = 1;
+}
