@@ -8,12 +8,16 @@ namespace SD_lib.DB
     {
         public virtual DbSet<Client> Clients { get; set; }
         public virtual DbSet<Card> Cards { get; set; }
+        public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<AccountSession> Sessions { get; set; }
 
 
         #region Constructor
 
         public SD_libContext()
         {
+            //Database.EnsureDeleted();
+            //Database.EnsureCreated();
         }
 
         #endregion
@@ -36,6 +40,8 @@ namespace SD_lib.DB
         {
             modelBuilder.Entity<Client>();
             modelBuilder.Entity<Card>();
+            modelBuilder.Entity<Account>();
+            modelBuilder.Entity<AccountSession>();
         }
 
         #endregion

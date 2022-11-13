@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SD_lib.DB;
 
@@ -10,9 +11,10 @@ using SD_lib.DB;
 namespace SD_lib.Migrations
 {
     [DbContext(typeof(SD_libContext))]
-    partial class SD_libContextModelSnapshot : ModelSnapshot
+    [Migration("20221016160238_AddAuth")]
+    partial class AddAuth
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.10");
@@ -104,12 +106,6 @@ namespace SD_lib.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER")
                         .HasColumnName("id");
-            modelBuilder.Entity("SD_lib.Entity.Models.Card", b =>
-                {
-                    b.Property<Guid>("CardId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("guid");
 
                     b.Property<int>("CVV")
                         .HasMaxLength(3)
@@ -119,8 +115,6 @@ namespace SD_lib.Migrations
                     b.Property<string>("CardNumber")
                         .IsRequired()
                         .HasColumnType("TEXT")
-                    b.Property<int>("CardNumber")
-                        .HasColumnType("INTEGER")
                         .HasColumnName("card_number");
 
                     b.Property<DateTime>("ExpirationDate")
@@ -140,7 +134,6 @@ namespace SD_lib.Migrations
                     b.HasIndex("HolderClientId");
 
                     b.ToTable("Cards");
-                    b.ToTable("Cards", "Work");
                 });
 
             modelBuilder.Entity("SD_lib.Entity.Models.Client", b =>
@@ -179,7 +172,6 @@ namespace SD_lib.Migrations
                         .IsRequired();
 
                     b.Navigation("Account");
-                    b.ToTable("Clients", "Work");
                 });
 
             modelBuilder.Entity("SD_lib.Entity.Models.Card", b =>
@@ -195,7 +187,6 @@ namespace SD_lib.Migrations
                 {
                     b.Navigation("Sessions");
                 });
-
 
             modelBuilder.Entity("SD_lib.Entity.Models.Client", b =>
                 {

@@ -15,6 +15,10 @@
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="Microsoft.Extensions.Configuration.UserSecrets" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
+    <None Remove="Tokens\" />
+    <None Remove="Accounts\" />
+    <None Remove="Tokens\Services\" />
+    <None Remove="System.IdentityModel.Tokens.Jwt" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.10" />
@@ -28,5 +32,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.24.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tokens\" />
+    <Folder Include="Accounts\" />
+    <Folder Include="Tokens\Services\" />
   </ItemGroup>
 </Project>

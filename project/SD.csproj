@@ -25,9 +25,18 @@
     <None Remove="NLog.Config" />
     <None Remove="Microsoft.EntityFrameworkCore.Sqlite" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
+    <None Remove="Utils\" />
+    <None Remove="Models\Security\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Utils\" />
+    <Folder Include="Models\Security\" />
+=======
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SD_lib\SD_lib.csproj">

@@ -35,6 +35,13 @@ builder.Services.AddDbContext<SD_libContext>();
 builder.Services.AddScoped<ICardRepository, CardRepository>();
 builder.Services.AddScoped<IClientRepository, ClientRepository>();
 
+builder.Services.AddScoped<IAuthRepository, AuthRepository>();
+
+builder.Services.AddScoped<ICardService, CardService>();
+builder.Services.AddScoped<IClientService, ClientService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+=======
+
 builder.Services.AddScoped<ICardService, CardService>();
 builder.Services.AddScoped<IClientService, ClientService>();
 
