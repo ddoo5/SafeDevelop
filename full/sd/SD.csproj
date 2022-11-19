@@ -1,0 +1,69 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--<Protobuf Include="Utils\Protos\Models\protobuf.proto" GrpcServices="Client" />-->
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="5.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.10">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="NLog" Version="5.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.10" />
+    <PackageReference Include="FluentValidation" Version="11.2.2" />
+    <PackageReference Include="Grpc.Tools" Version="2.50.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.49.0" />
+    <PackageReference Include="Google.Protobuf" Version="3.21.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Controllers\" />
+    <None Remove="NLog.Web.AspNetCore" />
+    <None Remove="NLog" />
+    <None Remove="NLog.Extensions.Logging" />
+    <None Remove="NLog.Schema" />
+    <None Remove="NLog.Config" />
+    <None Remove="Microsoft.EntityFrameworkCore.Sqlite" />
+    <None Remove="Microsoft.EntityFrameworkCore.Design" />
+    <None Remove="Utils\" />
+    <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
+    <None Remove="FluentValidation" />
+    <None Remove="Grpc.Tools" />
+    <None Remove="Grpc.AspNetCore" />
+    <None Remove="Google.Protobuf" />
+    <None Remove="Utils\Protos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="Utils\" />
+    <Folder Include="Utils\Protos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SD_lib\SD_lib.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="..\SD_lib\Client.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Protos\Models\client.proto">
+      <GrpcServices></GrpcServices>
+      <Access></Access>
+      <ProtoCompile></ProtoCompile>
+      <CompileOutputs></CompileOutputs>
+      <OutputDir></OutputDir>
+      <Generator></Generator>
+      <ProtoRoot></ProtoRoot>
+    </None>
+  </ItemGroup>
+</Project>
